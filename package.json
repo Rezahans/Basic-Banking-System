@@ -1,0 +1,19 @@
+{
+  "name": "challange-bejs-chapter-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bank_account.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rezahans/Basic-Banking-System.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rezahans/Basic-Banking-System/issues"
+  },
+  "homepage": "https://github.com/Rezahans/Basic-Banking-System#readme"
+}

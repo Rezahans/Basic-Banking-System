@@ -1,24 +1,37 @@
-let saldo = 0;
+class BankAccount {
+    constructor() {
+        this.balance = 0;
+    }
 
-    function tambahSaldo() {
-        const tmbhSaldo = parseFloat(window.prompt("Jumlah tambahSaldo")) 
-        if(!isNaN(tmbhSaldo)){
-            saldo += tmbhSaldo;
-            window.alert(`tambahSaldo Berhasil ${tmbhSaldo}. Jumlah Saldo sekarang: ${saldo}`);
-        
-        }else {
-            window.alert("Input berupa angka");
-        }
+    async deposit(amount) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (amount > 0) {
+                    this.balance += amount;
+                    const result = `Deposited $${amount}. New balance: $${this.balance}`;
+                    resolve(result);
+                } else {
+                    const error = 'Invalid deposit amount.';
+                    reject(error);
+                }
+            }, 2000);
+        });
     }
-    function kurangiSaldo(){
-        const krgSaldo = parseFloat(window.prompt("Jumlah kurangiSaldo"))
-        if(!isNaN(krgSaldo)){
-            if(saldo >= krgSaldo){
-                saldo -= krgSaldo;
-                window.alert(`kurangiSaldo Berhasil ${krgSaldo}. Jumlah Saldo sekarang: ${saldo}`);
-            
-            }else {
-                window.alert("Input berupa angka");
-            }
-        }
+
+    async withdraw(amount) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (amount > 0 && amount <= this.balance) {
+                    this.balance -= amount;
+                    const result = `Withdrawn $${amount}. New balance: $${this.balance}`;
+                    resolve(result);
+                } else {
+                    const error = 'Invalid withdrawal amount or insufficient balance.';
+                    reject(error);
+                }
+            }, 2000); 
+        });
     }
+}
+
+module.exports = BankAccount;
